@@ -47,13 +47,13 @@ class SignInScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "User Name",
+                      "Username",
                       style: ColorAndFont.stdText,
                     ),
                     // Call custom widget for user name input
                     CustomTextFeild(
                       controller: signInContoller.userNameController,
-                      label: "fathima",
+                      label: "Enter Username (fathima)",
                       textInputType: TextInputType.text,
                       maxLines: 1,
                       validation: signInContoller.userNameValidation,
@@ -64,7 +64,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                     // Call custom widget for password input
                     CustomTextFeild(
-                      label: "1234",
+                      label: "Enter password (1234)",
                       controller: signInContoller.passwordController,
                       textInputType: TextInputType.multiline,
                       maxLines: 1,

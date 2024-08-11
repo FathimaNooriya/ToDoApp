@@ -18,6 +18,8 @@ class HomeController extends GetxController {
   // Toggle theme between light and dark mode
   toggleTheme() {
     themeMode = isDark.value ? darkTheme : lightTheme;
+    addTaskController.refresh();
+    addTaskController.taskList.refresh();
     refresh();
   }
 

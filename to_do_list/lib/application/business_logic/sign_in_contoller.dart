@@ -26,7 +26,7 @@ class SignInContoller extends GetxController {
   // Validate username field
   String? userNameValidation() {
     if (userNameController.text.isEmpty) {
-      return "Please Enter the user name";
+      return "Please Enter the Userame";
     }
     return null;
   }
@@ -34,7 +34,7 @@ class SignInContoller extends GetxController {
   // Validate password field
   String? passwordValidation() {
     if (passwordController.text.isEmpty) {
-      return "Please Enter the password name";
+      return "Please Enter the Password";
     } else {
       return null;
     }

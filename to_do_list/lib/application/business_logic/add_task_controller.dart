@@ -38,9 +38,9 @@ class AddTaskController extends GetxController {
   }
 
   // Validate task description
-  String? taskDiscriptionValidation() {
+  String? taskDescriptionValidation() {
     if (taskDiscriptionController.text.isEmpty) {
-      return "Please Enter the password name";
+      return "Please Enter the task Description";
     } else {
       return null;
     }
@@ -50,7 +50,7 @@ class AddTaskController extends GetxController {
   void updateScreen(int index) {
     updateIndex.value = index;
     taskTitleController.text = taskList[index].tittle;
-    taskDiscriptionController.text = taskList[index].taskDiscription;
+    taskDiscriptionController.text = taskList[index].taskDescription;
     taskdone.value = taskList[index].taskDone;
   }
 
@@ -59,7 +59,7 @@ class AddTaskController extends GetxController {
     if (taskFormkey.currentState!.validate()) {
       taskList[updateIndex.value] = TaskModel(
           tittle: taskTitleController.text,
-          taskDiscription: taskDiscriptionController.text,
+          taskDescription: taskDiscriptionController.text,
           taskDone: taskdone.value);
       taskList.refresh();
       Get.back();
@@ -74,7 +74,7 @@ class AddTaskController extends GetxController {
     if (taskFormkey.currentState!.validate()) {
       taskList.add(TaskModel(
           tittle: taskTitleController.text,
-          taskDiscription: taskDiscriptionController.text,
+          taskDescription: taskDiscriptionController.text,
           taskDone: false));
       taskList.refresh();
       Get.back();

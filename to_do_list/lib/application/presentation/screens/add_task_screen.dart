@@ -31,57 +31,66 @@ class AddTaskScreen extends StatelessWidget {
                 ),
         ),
       ),
-      body: Center(
-        child: Card(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(11),
-              ),
-              color: homeController.isDark.value
-                  ? ColorAndFont.backgroundColor
-                  : ColorAndFont.appBarLightColor,
-            ),
-            height: MediaQuery.of(context).size.height * .5,
-            child: Padding(
-              padding: EdgeInsets.all(MediaQuery.of(context).size.height * .02),
-              child: Form(
-                key: addTaskController.taskFormkey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      "Add new task",
-                      style: ColorAndFont.stdText,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
+            child: Card(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(11),
+                  ),
+                  color: homeController.isDark.value
+                      ? ColorAndFont.backgroundColor
+                      : ColorAndFont.appBarLightColor,
+                ),
+                height: MediaQuery.of(context).size.height * .5,
+                child: Padding(
+                  padding:
+                      EdgeInsets.all(MediaQuery.of(context).size.height * .02),
+                  child: Form(
+                    key: addTaskController.taskFormkey,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Add new task",
+                          style: ColorAndFont.stdText,
+                        ),
+                        CustomTextFeild(
+                          controller: addTaskController.taskTitleController,
+                          label: "Study dart",
+                          textInputType: TextInputType.text,
+                          maxLines: 1,
+                          validation: addTaskController.taskTitleValidation,
+                        ),
+                        Text(
+                          "Enter Task Description",
+                          style: ColorAndFont.stdText,
+                        ),
+                        CustomTextFeild(
+                          label: "Task Details",
+                          controller:
+                              addTaskController.taskDiscriptionController,
+                          textInputType: TextInputType.multiline,
+                          maxLines: 3,
+                          validation:
+                              addTaskController.taskDescriptionValidation,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              updateTask
+                                  ? addTaskController.updateTaskList()
+                                  : addTaskController.addTask();
+                            },
+                            child: updateTask ? Text("Update") : Text("Save")),
+                      ],
                     ),
-                    CustomTextFeild(
-                      controller: addTaskController.taskTitleController,
-                      label: "Study dart",
-                      textInputType: TextInputType.text,
-                      maxLines: 1,
-                      validation: addTaskController.taskTitleValidation,
-                    ),
-                    Text(
-                      "Enter Task Discription",
-                      style: ColorAndFont.stdText,
-                    ),
-                    CustomTextFeild(
-                      label: "Task Details",
-                      controller: addTaskController.taskDiscriptionController,
-                      textInputType: TextInputType.multiline,
-                      maxLines: 3,
-                      validation: addTaskController.taskDiscriptionValidation,
-                    ),
-                    ElevatedButton(
-                        onPressed: () {
-                          updateTask
-                              ? addTaskController.updateTaskList()
-                              : addTaskController.addTask();
-                        },
-                        child: updateTask ? Text("Update") : Text("Save")),
-                  ],
+                  ),
                 ),
               ),
             ),

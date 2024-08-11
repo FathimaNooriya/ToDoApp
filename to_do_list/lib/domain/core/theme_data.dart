@@ -37,6 +37,8 @@ ThemeData darkTheme = ThemeData(
     fillColor: WidgetStateProperty.all<Color>(
       ColorAndFont.backgroundColor,
     ),
+    checkColor:
+        WidgetStatePropertyAll(const Color.fromARGB(255, 250, 250, 250)),
     side: BorderSide.none,
   ),
 
@@ -80,6 +82,7 @@ ThemeData lightTheme = ThemeData(
     style: ButtonStyle(
       backgroundColor:
           WidgetStateProperty.all<Color>(ColorAndFont.appBarLightColor),
+      textStyle: WidgetStatePropertyAll(TextStyle(color: Colors.black)),
     ),
   ),
 

@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                               "${addTaskController.taskList[index].tittle}",
                             ),
                             subtitle: Text(
-                                "${addTaskController.taskList[index].taskDiscription}"),
+                                "${addTaskController.taskList[index].taskDescription}"),
                             // Button to delete task with confirmation dialog
                             trailing: IconButton(
                               onPressed: () {
